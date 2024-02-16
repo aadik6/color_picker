@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Picker</title>
+  </head>
+  <body>
+    <div class="colorPicker">
+      <input type="color" id="color" value="" />
+      <input type="text" id="valueContainer" value="" />
+    </div>
+    <script>
+      const color = document.getElementById("color");
+      const code = document.getElementById("valueContainer");
+      //for initial colorCode
+      code.value = color.value;
+      //change input taking
+      color.addEventListener("input", function () {
+        code.value = color.value;
+        console.log(color, "oopoopo");
+        document.body.style.backgroundColor = color.value;
+      });
+
+      //copy when container clicked
+      code.addEventListener("click", function () {
+        code.select();
+        navigator.clipboard.writeText(code.value);
+        alert("Copied the text: " + code.value);
+      });
+    </script>
+  </body>
+</html>
+ 
